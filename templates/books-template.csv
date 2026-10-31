@@ -1,0 +1,4 @@
+title,author,isbn,category,description,cover_url,total_copies,available_copies,floor,section,shelf,row_label,position_label
+Introduction to Algorithms,Thomas H. Cormen,9780262046305,Computer Science,"Classic algorithms textbook, 4th edition",,3,3,1,Algorithms,C,B,03
+Clean Code,Robert C. Martin,9780132350884,Computer Science,A handbook of agile software craftsmanship,,2,2,1,Programming,C,A,01
+Principles of Economics,N. Gregory Mankiw,9781305585126,Economics,,,4,4,2,Economics,G,A,05

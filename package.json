@@ -1,0 +1,16 @@
+{
+  "name": "library-qr-system",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.57.0",
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "vercel": "^48.0.0"
+  }
+}
