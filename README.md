@@ -96,3 +96,13 @@ The header logo is `img/siam-university-icon.svg`; replace that file to change i
 ## 8. Bulk import books
 
 In **Admin > Manage books > Import many books from a file**, upload a CSV or Excel (.xlsx) file and click Import. Start from `templates/books-template.csv` (also downloadable from that panel). Required columns: `title`, `author`, `floor` (1 or 2), `shelf` (book store A-F on Floor 1, G-H on Floor 2). Rows with problems are listed with the reason and are not imported; books already in the catalogue (same ISBN or same title + author) are skipped by default. Prefer SQL? See `supabase/import-books-example.sql`.
+
+## 9. Book preview ("Look inside")
+
+Each book can have a preview PDF (cover, contents, preface, sample pages). On the book page, visitors see a strip of page thumbnails and can open a full-screen viewer (next/previous, keyboard arrows, swipe, zoom, page thumbnails).
+
+1. Run `supabase/add-book-preview.sql` once in the Supabase SQL Editor (adds the `preview_url` column and a public `book-previews` storage bucket where only admins can upload).
+2. In **Admin > Manage books**, add or edit a book and choose a PDF under **Book preview PDF** (max 50 MB). Replace or remove it any time from the same form.
+3. Bulk import: an optional `preview_url` column (a link to a PDF) is accepted.
+
+Books without a preview simply do not show the section.
