@@ -22,7 +22,7 @@ export function parseCSV(text){
 const norm=h=>String(h??"").toLowerCase().replace(/[^a-z0-9]+/g,"");
 const ALIASES={
  title:["title","booktitle","bookname","name"],author:["author","authors","writer"],isbn:["isbn","isbn13","isbn10"],
- category:["category","subject","genre"],description:["description","summary"],cover_url:["coverurl","cover","image","imageurl"],
+ category:["category","subject","genre"],description:["description","summary"],cover_url:["coverurl","cover","image","imageurl"],preview_url:["previewurl","preview","previewpdf"],
  total_copies:["totalcopies","copies","quantity","qty"],available_copies:["availablecopies","available"],
  floor:["floor","level"],section:["section"],shelf:["shelf","bookstore","store"],row_label:["rowlabel","row"],position_label:["positionlabel","position"]
 };
@@ -61,6 +61,7 @@ export function validateRows(objects,existing=[],skipDuplicates=true){
   const avail=d.available_copies===""||d.available_copies===undefined?total:Number(d.available_copies);
   if(!Number.isInteger(avail)||avail<0||avail>total){bad(`Available copies must be a whole number from 0 to total copies (${total}).`);continue;}
   if(d.cover_url&&!/^https?:\/\//i.test(d.cover_url)){bad("Cover URL must start with http:// or https://.");continue;}
+  if(d.preview_url&&!/^https?:\/\//i.test(d.preview_url)){bad("Preview URL must start with http:// or https://.");continue;}
   if(skipDuplicates){
    const ik=d.isbn?isbnKey(d.isbn):"",nk=nameKey(d.title,d.author);
    if((ik&&seenIsbn.has(ik))||seenName.has(nk)){dupes.push({row,title:d.title});continue;}
@@ -69,7 +70,7 @@ export function validateRows(objects,existing=[],skipDuplicates=true){
   ready.push({row,payload:{
    title:d.title,author:d.author,isbn:d.isbn||null,category:d.category||null,description:d.description||null,cover_url:d.cover_url||null,
    total_copies:total,available_copies:avail,floor:fl,section:d.section||d.category||"General",shelf,
-   row_label:d.row_label||null,position_label:d.position_label||null}});
+   row_label:d.row_label||null,position_label:d.position_label||null,...(d.preview_url?{preview_url:d.preview_url}:{})}});
  }
  return {ready,errors,dupes};
 }
