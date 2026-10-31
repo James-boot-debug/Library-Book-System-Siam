@@ -133,6 +133,34 @@ th{background:#faf5e8;color:#8a7a52}
 .cat-item:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:rgba(201,162,75,.6)}
 .cat-item strong{display:block;color:var(--navy)}
 .load-more-row{display:flex;justify-content:center;margin-top:26px}.load-more-row .btn{padding:13px 28px}
+/* book preview (Look inside) */
+.preview-panel{margin-top:1.25rem}.pv-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.pv-head h2{margin:.2rem 0 0;font-size:1.3rem}
+.pv-strip{display:flex;gap:14px;overflow-x:auto;padding:16px 4px 8px;scroll-snap-type:x proximity}
+.pv-thumb{flex:none;scroll-snap-align:start;position:relative;display:grid;place-items:center;min-width:110px;min-height:150px;padding:6px;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer;box-shadow:0 6px 18px rgba(10,26,53,.1);transition:transform .3s,box-shadow .3s,border-color .3s}
+.pv-thumb:hover{transform:translateY(-6px) rotate(-1deg);border-color:var(--gold);box-shadow:0 16px 30px rgba(10,26,53,.2)}
+.pv-thumb canvas{display:block;border-radius:4px;max-width:100%}
+.pv-thumb span{position:absolute;left:8px;bottom:8px;background:rgba(10,26,53,.8);color:var(--gold2);font:700 .7rem 'DM Sans';padding:2px 8px;border-radius:20px}
+.pv-more{background:linear-gradient(145deg,#0d2247,#14325f);color:var(--gold2);align-content:center;gap:4px}.pv-more strong{font:700 1.6rem 'Playfair Display',serif}.pv-more span{position:static;background:none;font-size:.78rem}
+body.pv-lock{overflow:hidden}
+.pv-overlay{position:fixed;inset:0;z-index:1000;display:flex;flex-direction:column;background:rgba(5,14,30,.96);backdrop-filter:blur(6px);color:#fff;animation:pvin .3s both}
+@keyframes pvin{from{opacity:0}to{opacity:1}}
+.pv-bar{display:flex;align-items:center;gap:10px;padding:12px 18px;border-bottom:1px solid rgba(236,213,146,.25)}
+.pv-title{flex:1;min-width:0;font:700 1.05rem 'Playfair Display',serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pv-count{color:var(--gold2);font-weight:700;font-size:.9rem;margin-right:6px}
+.pv-btn{background:rgba(255,255,255,.1);border:1px solid rgba(236,213,146,.4);color:var(--gold2);border-radius:30px;padding:8px 16px;font:600 .85rem 'DM Sans';cursor:pointer;text-decoration:none;transition:.25s}
+.pv-btn:hover{background:var(--gold);color:#1a1306}
+.pv-stage{flex:1;min-height:0;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;padding:10px 12px}
+.pv-nav{width:48px;height:48px;border-radius:50%;border:1px solid rgba(236,213,146,.5);background:rgba(255,255,255,.08);color:var(--gold2);font-size:1.8rem;line-height:1;cursor:pointer;transition:.25s}
+.pv-nav:hover:not(:disabled){background:var(--gold);color:#1a1306}.pv-nav:disabled{opacity:.25;cursor:default}
+.pv-canvas-wrap{height:100%;min-height:0;overflow:auto;display:flex}
+.pv-canvas-wrap canvas{margin:auto;display:block;border-radius:6px;background:#fff;box-shadow:0 20px 60px rgba(0,0,0,.6);cursor:zoom-in;animation:rise .35s both}
+.pv-canvas-wrap canvas.zoomed{cursor:zoom-out}
+.pv-thumbs{display:flex;gap:8px;overflow-x:auto;padding:10px 14px 14px;border-top:1px solid rgba(236,213,146,.2)}
+.pv-t{flex:none;position:relative;width:64px;height:90px;display:grid;place-items:center;padding:0;border:2px solid transparent;border-radius:6px;background:rgba(255,255,255,.08);cursor:pointer;overflow:hidden}
+.pv-t canvas{max-width:100%;max-height:100%}.pv-t span{position:absolute;right:3px;bottom:3px;background:rgba(0,0,0,.65);font:700 .6rem 'DM Sans';padding:1px 5px;border-radius:10px;color:#fff}
+.pv-t.active{border-color:var(--gold);box-shadow:0 0 0 2px rgba(201,162,75,.4)}
+.preview-field{margin:4px 0}.inline-check{display:inline-flex;align-items:center;gap:6px;font-weight:500;color:var(--ink)}.inline-check input{width:auto}
+@media(max-width:620px){.pv-stage{grid-template-columns:1fr;position:relative}.pv-nav{position:absolute;z-index:2;top:50%;width:40px;height:40px;background:rgba(5,14,30,.7)}.pv-prev{left:6px}.pv-next{right:6px}.pv-bar{flex-wrap:wrap}.pv-btn{padding:6px 12px}}
 /* bulk import */
 .import-panel summary{cursor:pointer;font:700 1.05rem Manrope,sans-serif;color:var(--navy)}.import-panel[open] summary{margin-bottom:12px}
 .import-panel code{background:#fff4d6;border:1px solid #efdcae;border-radius:5px;padding:1px 6px;font-size:.82rem}
