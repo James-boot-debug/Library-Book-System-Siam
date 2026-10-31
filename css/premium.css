@@ -132,6 +132,7 @@ th{background:#faf5e8;color:#8a7a52}
 .cat-item{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(135deg,#fff,#fffaf0);transition:transform .25s,box-shadow .25s,border-color .25s}
 .cat-item:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:rgba(201,162,75,.6)}
 .cat-item strong{display:block;color:var(--navy)}
+.load-more-row{display:flex;justify-content:center;margin-top:26px}.load-more-row .btn{padding:13px 28px}
 /* bulk import */
 .import-panel summary{cursor:pointer;font:700 1.05rem Manrope,sans-serif;color:var(--navy)}.import-panel[open] summary{margin-bottom:12px}
 .import-panel code{background:#fff4d6;border:1px solid #efdcae;border-radius:5px;padding:1px 6px;font-size:.82rem}
